@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Personal calendar</title>
+
+    <script src="script/jquery.min.js"></script>
+    <script src="script/index.global.js"></script>
+    <script src="script/bootstrap.bundle.min.js"></script>
+    <script src="script/select2.full.min.js"></script>
+    <script src="script/moment.min.js"></script>
+    <script src="script/script.js"></script>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/select2.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div id="calendar"></div>
+
+    <div id="mdlEvent" class="modal modal-dark fade" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Add Event</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body d-flex flex-wrap gap-1 width100 justify-content-center">
+            <div class="width49">
+              Event Title
+              <br />
+              <input type="text" name="title" id="txtTitle" class="txtTitle" />
+            </div>
+            <div class="width49">
+              Theme
+              <br />
+              <select name="select theme" id="ddlTheme" class="ddltheme">
+                <option value="reminder">Reminder</option>
+                <option value="appointment">Appointment</option>
+                <option value="birthday">Birthday</option>
+                <option value="holiday">Holiday</option>
+              </select>
+            </div>
+            <div class="width49">
+              Start Date
+              <br />
+              <input type="datetime-local" name="start date" id="txtStartDate" class="txtStartDate" />
+            </div>
+            <div class="width49">
+              End Date
+              <br />
+              <input type="datetime-local" name="End date" id="txtEndDate" class="txtEndDate" />
+            </div>
+            <div class="width49 d-flex align-items-center justify-content-start gap-2">All Day? <input type="checkbox" name="allday" id="chkAllDay" /></div>
+            <div class="width49"></div>
+            <div class="width100">
+              Description<br />
+              <textarea name="event description" id="txtEventDescription" rows="5"></textarea>
+            </div>
+            <div class="width100">
+              Preview <br />
+              <div id="preview" class=""></div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" onclick="CreateEvent()">Add Event</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="clearModals()">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="mdlEventu" class="modal modal-dark fade" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Update Event</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body d-flex flex-wrap gap-1 width100 justify-content-center">
+            <div class="width49">
+              Event Title
+              <br />
+              <input type="text" name="title" id="txtTitleu" class="txtTitle" />
+            </div>
+            <div class="width49">
+              Theme
+              <br />
+              <select name="select theme" id="ddlThemeu" class="ddltheme">
+                <option value="reminder">Reminder</option>
+                <option value="appointment">Appointment</option>
+                <option value="birthday">Birthday</option>
+                <option value="holiday">Holiday</option>
+              </select>
+            </div>
+            <div class="width49">
+              Start Date
+              <br />
+              <input type="datetime-local" name="start date" id="txtStartDateu" class="txtStartDate" />
+            </div>
+            <div class="width49">
+              End Date
+              <br />
+              <input type="datetime-local" name="End date" id="txtEndDateu" class="txtEndDate" />
+            </div>
+            <div class="width49 d-flex align-items-center justify-content-start gap-2">All Day? <input type="checkbox" name="allday" id="chkAllDayu" /></div>
+            <div class="width49"></div>
+            <div class="width100">
+              Description<br />
+              <textarea name="event description" id="txtEventDescriptionu" rows="5"></textarea>
+            </div>
+            <div class="width100">
+              Preview <br />
+              <div id="previewu" class=""></div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary update" onclick="UpdateEvent()">Update Event</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="clearModals()">Close</button>
+            <button type="button" class="btn btn-danger delete" onclick="DeleteEvent()">Delete Event</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
